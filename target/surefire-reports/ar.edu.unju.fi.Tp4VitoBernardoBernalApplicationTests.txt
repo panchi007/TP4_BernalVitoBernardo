@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: ar.edu.unju.fi.Tp4VitoBernardoBernalApplicationTests
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.168 s -- in ar.edu.unju.fi.Tp4VitoBernardoBernalApplicationTests
