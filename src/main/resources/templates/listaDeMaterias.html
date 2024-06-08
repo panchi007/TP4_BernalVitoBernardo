@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet"
+	th:href="@{/webjars/bootstrap/5.3.3/css/bootstrap.min.css}">
+<link rel="stylesheet" href="/css/estilos.css">
+<title>Listado de Materias</title>
+</head>
+<body>
+	<div th:replace="fragments/header :: header"></div>
+	<div class="container my-4">
+		<h1 class="text-center mb-4">Listado de Materias</h1>
+		<div class="row row-cols-1 row-cols-md-3 g-4">
+			<div class="col" th:each="materia : ${materiaListado}">
+				<div class="card h-100">
+					<div class="card-body">
+
+						<h5>nombre de la materia:</h5>
+						<h5 class="card-title" th:text="${materia.nombre}"></h5>
+						<p class="card-text">
+							<strong>Código:</strong> <span th:text="${materia.codigo}">Código
+								de la materia</span><br> <strong>Curso:</strong> <span
+								th:text="${materia.curso}">Curso de la materia</span><br> <strong>Cantidad
+								de Horas:</strong> <span th:text="${materia.cantidadHoras}">Cantidad
+								de horas</span><br> <strong>Modalidad:</strong> <span
+								th:text="${materia.modalidad}">Modalidad de la materia</span><br>
+						</p>
+					</div>
+					<div class="card-footer text-end">
+						<a th:href="@{|/editarMateria/${materia.codigo}|}"
+							class="btn btn-success btn-sm">Editar</a> <a
+							th:href="@{|/borrarMateria/${materia.codigo}|}"
+							class="btn btn-danger btn-sm">Borrar</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script th:src="@{/webjars/bootstrap/5.3.3/js/bootstrap.bundle.min.js}"></script>
+	<div th:replace="fragments/footer :: footer"></div>
+</body>
+</html>

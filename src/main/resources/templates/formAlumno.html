@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" th:href="@{/webjars/bootstrap/5.3.3/css/bootstrap.min.css}">
+<link rel="stylesheet" href="/css/estilos.css">
+<title>Formulario de Alumno</title>
+</head>
+<body>
+    <div th:replace="fragments/header :: header"></div>
+    <div class="container">
+        <!-- Formulario para Editar -->
+        <form th:object="${nuevoAlumno}"
+            th:action="@{/modificarAlumno}"
+            th:if="${nuevoAlumno.lu != null}" method="post" enctype="multipart/form-data">
+            <div class="row g-3">
+                <div class="col-md-6">
+                    <label for="dniID" class="form-label">DNI</label>
+                    <input type="text" class="form-control" id="dniID" th:field="*{dni}" disabled required>
+                    <input type="hidden" th:field="*{dni}" />
+                </div>
+                <div class="col-md-6">
+                    <label for="nombreID" class="form-label">Nombre</label>
+                    <input type="text" class="form-control" id="nombreID" th:field="*{nombre}" required>
+                </div>
+                <div class="col-md-6">
+                    <label for="apellidoID" class="form-label">Apellido</label>
+                    <input type="text" class="form-control" id="apellidoID" th:field="*{apellido}" required>
+                </div>
+                <div class="col-md-6">
+                    <label for="emailID" class="form-label">Email</label>
+                    <input type="email" class="form-control" id="emailID" th:field="*{email}" required>
+                </div>
+                <div class="col-md-6">
+                    <label for="telefonoID" class="form-label">Teléfono</label>
+                    <input type="tel" class="form-control" id="telefonoID" th:field="*{telefono}" required>
+                </div>
+                <div class="col-md-6">
+                    <label for="fechaNacimientoID" class="form-label">Fecha de Nacimiento</label>
+                    <input type="date" class="form-control" id="fechaNacimientoID" th:field="*{fechaNacimiento}" required>
+                </div>
+                <div class="col-md-6">
+                    <label for="domicilioID" class="form-label">Domicilio</label>
+                    <input type="text" class="form-control" id="domicilioID" th:field="*{domicilio}" required>
+                </div>
+                <div class="col-md-6">
+                    <label for="luID" class="form-label">LU (Libreta Universitaria)</label>
+                    <input type="text" class="form-control" id="luID" th:field="*{lu}" required>
+                </div>
+            </div>
+            <hr>
+            <button class="btn btn-success rounded-pill" type="submit">Modificar</button>
+        </form>
+
+        <!-- Formulario para Registrar -->
+        <form th:object="${nuevoAlumno}"
+            th:action="@{/guardarAlumno}"
+            th:if="${nuevoAlumno.lu == null}" method="post" enctype="multipart/form-data">
+            <div class="row g-3">
+                <div class="col-md-6">
+                    <label for="dniID" class="form-label">DNI</label>
+                    <input type="text" class="form-control" id="dniID" th:field="*{dni}" required>
+                </div>
+                <div class="col-md-6">
+                    <label for="nombreID" class="form-label">Nombre</label>
+                    <input type="text" class="form-control" id="nombreID" th:field="*{nombre}" required>
+                </div>
+                <div class="col-md-6">
+                    <label for="apellidoID" class="form-label">Apellido</label>
+                    <input type="text" class="form-control" id="apellidoID" th:field="*{apellido}" required>
+                </div>
+                <div class="col-md-6">
+                    <label for="emailID" class="form-label">Email</label>
+                    <input type="email" class="form-control" id="emailID" th:field="*{email}" required>
+                </div>
+                <div class="col-md-6">
+                    <label for="telefonoID" class="form-label">Teléfono</label>
+                    <input type="tel" class="form-control" id="telefonoID" th:field="*{telefono}" required>
+                </div>
+                <div class="col-md-6">
+                    <label for="fechaNacimientoID" class="form-label">Fecha de Nacimiento</label>
+                    <input type="date" class="form-control" id="fechaNacimientoID" th:field="*{fechaNacimiento}" required>
+                </div>
+                <div class="col-md-6">
+                    <label for="domicilioID" class="form-label">Domicilio</label>
+                    <input type="text" class="form-control" id="domicilioID" th:field="*{domicilio}" required>
+                </div>
+                <div class="col-md-6">
+                    <label for="luID" class="form-label">LU (Libreta Universitaria)</label>
+                    <input type="text" class="form-control" id="luID" th:field="*{lu}" required>
+                </div>
+            </div>
+            <hr>
+            <button class="btn btn-success rounded-pill" type="submit">Registrar</button>
+        </form>
+    </div>
+    <script th:src="@{/webjars/bootstrap/5.3.3/js/bootstrap.bundle.min.js}"></script>
+    <div th:replace="fragments/footer :: footer"></div>
+</body>
+</html>
