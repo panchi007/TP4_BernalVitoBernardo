@@ -5,22 +5,15 @@ public class Materia {
 	private String nombre;
 	private String curso;
 	private int cantidadHoras;
-	private String modalidad; // "virtual" o "presencial"
+	private String modalidad;
 	private Docente docente;
 	private Carrera carrera;
 
-	public Materia(String codigo, String nombre, String curso, int cantidadHoras, String modalidad, Docente docente,
-			Carrera carrera) {
-		super();
-		this.codigo = codigo;
-		this.nombre = nombre;
-		this.curso = curso;
-		this.cantidadHoras = cantidadHoras;
-		this.modalidad = modalidad;
-		this.docente = docente;
-		this.carrera = carrera;
+	// Constructor vacío
+	public Materia() {
 	}
 
+	// Getters y Setters
 	public String getCodigo() {
 		return codigo;
 	}
@@ -75,5 +68,14 @@ public class Materia {
 
 	public void setCarrera(Carrera carrera) {
 		this.carrera = carrera;
+	}
+
+	// Método toString para depuración
+	@Override
+	public String toString() {
+		return "Materia{" + "codigo='" + codigo + '\'' + ", nombre='" + nombre + '\'' + ", curso='" + curso + '\''
+				+ ", cantidadHoras=" + cantidadHoras + ", modalidad='" + modalidad + '\'' + ", docente="
+				+ (docente != null ? docente.getNombre() + ' ' + docente.getApellido() : "null") + ", carrera="
+				+ (carrera != null ? carrera.getNombre() : "null") + '}';
 	}
 }

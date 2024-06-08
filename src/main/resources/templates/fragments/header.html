@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Navbar</title>
+<link rel="stylesheet"
+	th:href="@{/webjars/bootstrap/5.3.3/css/bootstrap.min.css}">
+</head>
+<body>
+	<nav class="navbar navbar-expand-lg navbar-light bg-light"
+		th:fragment="header">
+		<div class="container-fluid">
+			<a class="navbar-brand" href="#"> <img src="/images/logounju.jpg"
+				alt="Logo" style="height: 50px; margin-right: 15px;">
+				Universidad Nacional de Jujuy
+			</a>
+			<button class="navbar-toggler" type="button"
+				data-bs-toggle="collapse" data-target="#navbarNavDropdown"
+				aria-controls="navbarNavDropdown" aria-expanded="false"
+				aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarNavDropdown">
+				<ul class="navbar-nav ms-auto">
+					<li class="nav-item"><a class="nav-link active"
+						aria-current="page" href="/">Inicio</a></li>
+					<li class="nav-item dropdown"><a
+						class="nav-link dropdown-toggle" href="#"
+						id="navbarDropdownMenuLink" role="button"
+						data-bs-toggle="dropdown" aria-expanded="false">Carrera</a>
+						<ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+							<li><a class="dropdown-item" href="/formularioCarrera">Formulario
+									Carrera</a></li>
+							<li><a class="dropdown-item" href="/listaDeCarreras">Lista
+									De Carreras</a></li>
+						</ul></li>
+					<li class="nav-item dropdown"><a
+						class="nav-link dropdown-toggle" href="#"
+						id="navbarDropdownMenuLink" role="button"
+						data-bs-toggle="dropdown" aria-expanded="false">Docente</a>
+						<ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+							<li><a class="dropdown-item" href="/formularioDocente">Formulario Docente</a></li>
+							<li><a class="dropdown-item" href="/listaDeDocentes">Lista De Docentes</a></li>
+						</ul></li>
+					<li class="nav-item dropdown"><a
+						class="nav-link dropdown-toggle" href="#"
+						id="navbarDropdownMenuLink" role="button"
+						data-bs-toggle="dropdown" aria-expanded="false">Alumno</a>
+						<ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+							<li><a class="dropdown-item" href="/formularioAlumno">Formulario Alumno</a></li>
+							<li><a class="dropdown-item" href="/listaDeAlumnos">Lista De Alumnos</a></li>							
+						</ul></li>
+					<li class="nav-item dropdown"><a
+						class="nav-link dropdown-toggle" href="#"
+						id="navbarDropdownMenuLink" role="button"
+						data-bs-toggle="dropdown" aria-expanded="false">Materias</a>
+						<ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+							<li><a class="dropdown-item" href="/formularioMateria">Formulario Materias</a></li>
+							<li><a class="dropdown-item" href="/listaDeMaterias">Lista De Materias</a></li>
+						</ul></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+	<script th:src="@{/webjars/bootstrap/5.3.3/js/bootstrap.bundle.min.js}"></script>
+</body>
+</html>

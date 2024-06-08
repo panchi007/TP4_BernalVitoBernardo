@@ -1,19 +1,35 @@
 package ar.edu.unju.fi.model;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class Docente {
+	private String id;
 	private String legajo;
 	private String nombre;
 	private String apellido;
 	private String email;
 	private String telefono;
 
-	public Docente(String legajo, String nombre, String apellido, String email, String telefono) {
-		super();
+	public Docente() {
+		// Constructor vacío
+	}
+
+	public Docente(String legajo, String nombre, String apellido, String email, String telefono, String id) {
+		this.id = id;
 		this.legajo = legajo;
 		this.nombre = nombre;
 		this.apellido = apellido;
 		this.email = email;
 		this.telefono = telefono;
+	}
+
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
 	}
 
 	public String getLegajo() {

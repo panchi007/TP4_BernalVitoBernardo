@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" th:href="@{/webjars/bootstrap/5.3.3/css/bootstrap.min.css}">
+<link rel="stylesheet" href="/css/estilos.css">
+<title>Formulario de Materia</title>
+</head>
+<body>
+    <div th:replace="fragments/header :: header"></div>
+    <div class="container">
+        <form th:object="${nuevaMateria}"
+            th:action="@{${nuevaMateria.codigo != null} ? '/modificarMateria' : '/guardarMateria'}"
+            method="post">
+            <div class="row g-3">
+                <div class="col-md-6">
+                    <label for="codigoID" class="form-label">Código</label>
+                    <input type="text" class="form-control" id="codigoID" th:field="*{codigo}" th:disabled="${nuevaMateria.codigo != null}" required>
+                </div>
+                <div class="col-md-6">
+                    <label for="nombreID" class="form-label">Nombre</label>
+                    <input type="text" class="form-control" id="nombreID" th:field="*{nombre}" required>
+                </div>
+                <div class="col-md-6">
+                    <label for="cursoID" class="form-label">Curso</label>
+                    <input type="text" class="form-control" id="cursoID" th:field="*{curso}" required>
+                </div>
+                <div class="col-md-6">
+                    <label for="cantidadHorasID" class="form-label">Cantidad de Horas</label>
+                    <input type="number" class="form-control" id="cantidadHorasID" th:field="*{cantidadHoras}" required>
+                </div>
+                <div class="col-md-6">
+                    <label for="modalidadID" class="form-label">Modalidad</label>
+                    <select class="form-select" id="modalidadID" th:field="*{modalidad}" required>
+                        <option value="" disabled selected>Seleccione una modalidad</option>
+                        <option value="virtual">Virtual</option>
+                        <option value="presencial">Presencial</option>
+                    </select>
+                </div>
+                <div class="col-md-6">
+                    <label for="docenteID" class="form-label">Docente</label>
+                    <select class="form-select" id="docenteID" th:field="*{docente.id}" th:disabled="${nuevaMateria.codigo != null}" required>
+                        <option value="" disabled selected>Seleccione un docente</option>
+                        <option th:each="docente : ${docentes}" th:value="${docente.id}" th:text="${docente.nombre + ' ' + docente.apellido}"></option>
+                    </select>
+                </div>
+                <div class="col-md-6">
+                    <label for="carreraID" class="form-label">Carrera</label>
+                    <select class="form-select" id="carreraID" th:field="*{carrera.codigo}" required>
+                        <option value="" disabled selected>Seleccione una carrera</option>
+                        <option th:each="carrera : ${carreras}" th:value="${carrera.codigo}" th:text="${carrera.nombre}"></option>
+                    </select>
+                </div>
+            </div>
+            <hr>
+            <button class="btn btn-success rounded-pill" type="submit" th:text="${nuevaMateria.codigo != null} ? 'Modificar' : 'Registrar'">Registrar</button>
+        </form>
+    </div>
+    <script th:src="@{/webjars/bootstrap/5.3.3/js/bootstrap.bundle.min.js}"></script>
+    <div th:replace="fragments/footer :: footer"></div>
+</body>
+</html>
