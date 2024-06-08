@@ -16,6 +16,7 @@
                 <div class="col-md-6">
                     <label for="codigoID" class="form-label">Código</label>
                     <input type="text" class="form-control" id="codigoID" th:field="*{codigo}" th:disabled="${nuevaMateria.codigo != null}" required>
+                    <input type="hidden" th:field="*{codigo}">
                 </div>
                 <div class="col-md-6">
                     <label for="nombreID" class="form-label">Nombre</label>
